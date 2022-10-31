@@ -1,0 +1,22 @@
+<div *ngIf="hasToken; else noToken"  class="container">
+    <div class="text-light d-flex mt-5">
+        <h2>Task</h2>
+        <button class="btn btn-success ms-3" routerLink="add">Add Task</button>
+    </div>
+    
+    <div *ngIf="noTasks; else hasTasks">
+        <div class="bg-dark d-flex flex-wrap justify-content-center align-items-center mt-5" style="height: 200px;">
+            <h2 class="text-light">Add Task to see your Tasks!</h2>
+        </div>
+        
+    </div>
+    <ng-template #hasTasks>
+        <div class="d-flex flex-wrap w-100 bg-dark mt-3 rounded mb-5" >
+            <app-task *ngFor="let task of tasks" [task]="task" class="p-1"></app-task>
+        </div>
+    </ng-template>
+</div>
+
+<ng-template #noToken >
+    <h1 class="text-light text-center mt-5 bg-primary bg-opacity-25" style="height: 100px;">PLEASE LOG IN FIRST TO VIEW YOUR TASKS</h1>
+</ng-template>

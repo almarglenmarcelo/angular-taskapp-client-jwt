@@ -1,0 +1,17 @@
+<div class="container w-25 text-light mt-5">
+    <h1 class="text-center">Welcome to Task Application</h1>
+    
+    <form (ngSubmit)="onSubmit()" class="mt-5">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" [(ngModel)]="username" name="username" class="form-control" required>
+        </div>
+            
+         <div class="mt-3">
+            <label for="password">Password</label>
+            <input type="password" [(ngModel)]="password" name="password" class="form-control" required>
+         </div>
+         
+         <button class="btn btn-success mt-3" type="submit">Login</button>
+    </form>
+</div>
