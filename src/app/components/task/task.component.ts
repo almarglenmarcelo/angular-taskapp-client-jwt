@@ -15,44 +15,44 @@ import Swal from 'sweetalert2';
 export class TaskComponent implements OnInit {
 
   @Input() task!: Task;
-  @Output() oldTask!: Task;
 
+  taskId!: number ;
   constructor(
     private taskService: TaskService,
     private router: Router
     ) { }
 
   ngOnInit(): void {
+    
   }
   
   updateTask(){
    this.router.navigate(['tasks/update/' + this.task.id]);
   }
 
-  deleteTask(task: Task){
-    this.taskService.deleteTask(this.task.id!).subscribe({
-        next: this.deleteTaskSuccess.bind(this),
-        error: this.deleteTaskFailed.bind(this)
+  finishTask(task: Task){
+
+    this.taskService.completeTask(this.task.id!).subscribe({
+        next: this.finishTaskSuccess.bind(this),
+        error: this.finishTaskFailed.bind(this)
     });
   }
 
 
-  deleteTaskSuccess(response: Record<string, any>) {
-    Swal.fire('Delete Success', 'Task Deleted!', 'success')
+  finishTaskSuccess(response: Record<string, any>) {
+    Swal.fire('Task Finished!', 'Task has been moved to Finish!', 'success')
         .then(callback => {
           if(callback.isConfirmed) {
             this.refresh();
           }
         });
-    
+        
     
   }
-  deleteTaskFailed(response: Record<string, any>){
+  finishTaskFailed(response: Record<string, any>){
     let data: Record<string, any> = response['error'];
 
-    if(data['result'] == 'task_not_found'){
-      Swal.fire('Delete Failed', 'Task does not exists', 'error');
-    }    
+    Swal.fire('Error', 'Error Occured!', 'error'); 
   }
 
   

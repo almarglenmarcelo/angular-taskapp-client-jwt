@@ -32,7 +32,11 @@ export class TaskService {
   createTask(task: Task): Observable<Object> {
     return this.http.post(this.baseUrl, task, {headers: this.httpHeaders});
   }
-  
+
+  completeTask(id: number): Observable<Object> {
+    return this.http.post(this.baseUrl + '/complete', { id }, {headers: this.httpHeaders});
+  }
+
   updateTask(task: Task): Observable<Object> {
       return this.http.put(this.baseUrl, task, {headers: this.httpHeaders});
   }

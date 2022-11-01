@@ -15,6 +15,7 @@ import { TasksComponent } from './pages/tasks/tasks.component';
 import { AddTaskComponent } from './pages/add-task/add-task.component';
 import { UpdateTaskComponent } from './pages/update-task/update-task.component';
 import { FeaturesComponent } from './pages/features/features.component';
+import { CompletedTasksComponent } from './pages/completed-tasks/completed-tasks.component';
 
 
 const appRoutes : Routes = [
@@ -23,6 +24,7 @@ const appRoutes : Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'tasks', component: TasksComponent},
   { path: 'features', component: FeaturesComponent},  
+  { path: 'tasks/completed', component: CompletedTasksComponent},  
   { path: 'tasks/add', component: AddTaskComponent},
   { path: 'tasks/update/:taskId', component: UpdateTaskComponent},  
   { path: '**', component: NotFoundComponent}
@@ -40,7 +42,8 @@ const appRoutes : Routes = [
     TasksComponent,
     AddTaskComponent,
     UpdateTaskComponent,
-    FeaturesComponent
+    FeaturesComponent,
+    CompletedTasksComponent
   ],
   imports: [
     BrowserModule,
