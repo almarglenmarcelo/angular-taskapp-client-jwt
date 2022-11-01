@@ -1,1 +1,18 @@
-<p>completed-tasks works!</p>
+<div class="container">
+    <div class="text-light d-flex mt-5">
+        <h2>Task</h2>
+        <button class="btn btn-warning ms-3" routerLink="/tasks">Back</button>
+    </div>
+    
+    <div *ngIf="noCompletedTasks; else hasCompletedTasks">
+        <div class="bg-dark d-flex flex-wrap justify-content-center align-items-center mt-5" style="height: 200px;">
+            <h2 class="text-light">Finish a Task so you can have this filled!</h2>
+        </div>
+    </div>
+
+    <ng-template #hasCompletedTasks>
+        <div class="d-flex flex-wrap w-100 bg-dark mt-3 rounded mb-5" >
+            <app-completed-task *ngFor="let completedTask of completedTasks" [completedTask] = "completedTask" class="p-1"></app-completed-task>
+        </div>
+    </ng-template>
+</div>

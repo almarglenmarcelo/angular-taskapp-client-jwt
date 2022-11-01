@@ -3,10 +3,11 @@
         <h3 class="card-title">{{ task.title }}</h3>
         <p class="card-text">{{ task.description }}
         </p>
-        
-        <div>
-            <button class="btn btn-primary w-100" (click)="updateTask()">Edit</button>
-            <button class="btn btn-warning bg-opacity-25 w-100 mt-3" (click)="finishTask(task)">Finished</button>
+
+        <div class="d-flex">
+            <button class="btn btn-primary w-100 mt-3" (click)="updateTask()">Edit</button>
+            <button class="btn btn-warning bg-opacity-25 w-100 mt-3  ms-2" (click)="finishTask(task)">Finished</button>
+            <button class="btn btn-danger bg-opacity-25 w-100 mt-3  ms-2" (click)="deleteTask(task)">Delete</button>
         </div>
     </div>
 </div>

@@ -17,6 +17,7 @@ export class TaskComponent implements OnInit {
   @Input() task!: Task;
 
   taskId!: number ;
+  
   constructor(
     private taskService: TaskService,
     private router: Router
@@ -37,6 +38,33 @@ export class TaskComponent implements OnInit {
         error: this.finishTaskFailed.bind(this)
     });
   }
+
+  deleteTask(task: Task) {
+    this.taskService.deleteTask(task.id!).subscribe({
+      next: this.deleteTaskSuccess.bind(this),
+      error: this.deleteTaskFailed.bind(this)
+    });
+  }
+
+
+  deleteTaskSuccess(response: Record<string, any>) {
+    Swal.fire('Task Deleted!', 'Task has been deleted!', 'success')
+        .then(callback => {
+          if(callback.isConfirmed) {
+            this.refresh();
+          }
+        });
+        
+    
+  }
+  deleteTaskFailed(response: Record<string, any>){
+    let data: Record<string, any> = response['error'];
+
+    Swal.fire('Error', 'Error Occured!', 'error'); 
+  }
+
+
+
 
 
   finishTaskSuccess(response: Record<string, any>) {

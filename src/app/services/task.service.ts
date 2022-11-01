@@ -6,6 +6,7 @@ import { Task } from '@models/task';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SessionService  } from './session.service';
 import { environment } from 'src/environments/environment';
+import { CompletedTask } from '@models/completed-task';
 
 @Injectable({
   providedIn: 'root'
@@ -24,13 +25,18 @@ export class TaskService {
   get(): Observable<Task[]> {
     return this.http.get<Task[]>(this.baseUrl, {headers: this.httpHeaders});
   }
-  
+
   getSingleTask(taskId: number): Observable<Task> {
     return this.http.get<Task>(this.baseUrl + `/${taskId}`, {headers: this.httpHeaders});
   }
 
+  
   createTask(task: Task): Observable<Object> {
     return this.http.post(this.baseUrl, task, {headers: this.httpHeaders});
+  }
+  
+  getCompletedTasks(): Observable<CompletedTask[]> {
+    return this.http.get<CompletedTask[]>(this.baseUrl + '/completed', {headers: this.httpHeaders});
   }
 
   completeTask(id: number): Observable<Object> {
@@ -43,6 +49,10 @@ export class TaskService {
 
   deleteTask(taskId: number): Observable<Object> {
     return this.http.delete(this.baseUrl + `/${taskId}`, {headers: this.httpHeaders});
+  }
+  
+  deleteCompletedTask(taskId: number): Observable<Object> {
+    return this.http.delete(this.baseUrl + `/completed/${taskId}`, {headers: this.httpHeaders})
   }
 
 }

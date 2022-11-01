@@ -16,6 +16,7 @@ import { AddTaskComponent } from './pages/add-task/add-task.component';
 import { UpdateTaskComponent } from './pages/update-task/update-task.component';
 import { FeaturesComponent } from './pages/features/features.component';
 import { CompletedTasksComponent } from './pages/completed-tasks/completed-tasks.component';
+import { CompletedTaskComponent } from './components/completed-task/completed-task.component';
 
 
 const appRoutes : Routes = [
@@ -43,7 +44,8 @@ const appRoutes : Routes = [
     AddTaskComponent,
     UpdateTaskComponent,
     FeaturesComponent,
-    CompletedTasksComponent
+    CompletedTasksComponent,
+    CompletedTaskComponent
   ],
   imports: [
     BrowserModule,
