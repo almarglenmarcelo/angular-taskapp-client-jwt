@@ -50,13 +50,11 @@ export class UpdateTaskComponent implements OnInit {
     return this.taskService.getSingleTask(taskId);
   }
 
- 
-
 
   assignTaskValues(result: Record<string, any> ){
     this.previousTask.id = result['id'];
-    this.previousTask.title = result['title'];
-    this.previousTask.description = result['description'];
+    this.previousTask.title = '[EDIT]: ' +  result['title'];
+    this.previousTask.description = '   [EDIT]: ' + result['description'];
 
   }
 

@@ -30,6 +30,9 @@ export class TaskService {
     return this.http.get<Task>(this.baseUrl + `/${taskId}`, {headers: this.httpHeaders});
   }
 
+  redoTask(id: number): Observable<Object> {
+    return this.http.post(this.baseUrl + '/redo', { id }, {headers: this.httpHeaders});
+  }
   
   createTask(task: Task): Observable<Object> {
     return this.http.post(this.baseUrl, task, {headers: this.httpHeaders});

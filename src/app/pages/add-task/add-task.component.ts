@@ -27,11 +27,8 @@ export class AddTaskComponent implements OnInit {
   }
 
   createTaskSuccess(response: Record<string, any>) {
-    Swal.fire('Task Added', 'Task Created Successfully', 'success').then(result => {
-      if(result.isConfirmed) {
-        this.router.navigate(['tasks']);
-      }
-    });
+    this.router.navigate(['tasks']);
+    Swal.fire('Task Added', 'Task Created Successfully', 'success');
   }
   createTaskFailed() {
     Swal.fire('Failed', 'Task Creation Failed', 'error');

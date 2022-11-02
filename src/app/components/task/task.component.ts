@@ -26,6 +26,8 @@ export class TaskComponent implements OnInit {
   ngOnInit(): void {
     
   }
+
+  
   
   updateTask(){
    this.router.navigate(['tasks/update/' + this.task.id]);

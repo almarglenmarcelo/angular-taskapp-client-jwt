@@ -25,7 +25,10 @@ export class CompletedTaskComponent implements OnInit {
   }
 
   redoTask() {
-  //  Code For Redo Here, configure to SpringBoot
+    this.taskService.redoTask(this.completedTask.id!).subscribe({
+      next: this.redoSuccess.bind(this),
+      error: this.redoTaskFailed.bind(this)
+    });
   }
 
 
