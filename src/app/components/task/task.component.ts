@@ -78,6 +78,10 @@ export class TaskComponent implements OnInit {
       showConfirmButton: false,
       timer: 1000
     });
+
+    setTimeout(() => {
+      this.router.navigate(['/tasks']);
+    },1000)
         
     
   }
