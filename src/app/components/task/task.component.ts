@@ -70,12 +70,14 @@ export class TaskComponent implements OnInit {
 
 
   finishTaskSuccess(response: Record<string, any>) {
-    Swal.fire('Task Finished!', 'Task has been moved to Finish!', 'success')
-        .then(callback => {
-          if(callback.isConfirmed) {
-            this.refresh();
-          }
-        });
+    this.router.navigate(['/tasks/completed']);
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your Task has been Finished',
+      showConfirmButton: false,
+      timer: 1000
+    });
         
     
   }

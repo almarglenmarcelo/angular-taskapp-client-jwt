@@ -33,12 +33,14 @@ export class CompletedTaskComponent implements OnInit {
 
 
   redoSuccess(response: Record<string, any>){
-    Swal.fire('Task Moved', 'Task has been moved to Task List', 'success')
-      .then(answer => {
-        if(answer.isConfirmed){
-          this.router.navigate(['/tasks']);
-        }
-      });
+    this.router.navigate(['/tasks']);
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your Task has been Finished',
+      showConfirmButton: false,
+      timer: 1000
+    });
   }
 
   redoTaskFailed(response: Record<string, any>) {

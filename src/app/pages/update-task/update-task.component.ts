@@ -57,15 +57,16 @@ export class UpdateTaskComponent implements OnInit {
     this.previousTask.description = '   [EDIT]: ' + result['description'];
 
   }
-
+  
   updateTaskSuccess(result: Record<string, any>){
-
-    Swal.fire('Task Updated', 'Task Updated Success!', 'success')
-      .then(response => {
-        if(response.isConfirmed){
-          this.router.navigate(['/tasks']);
-        }
-      });
+      this.router.navigate(['/tasks']);
+      Swal.fire({
+        position: 'top-end',
+        title: 'Your Task has been Updated!',
+        icon: 'success',
+        timer: 1000,
+        showConfirmButton: false
+      })
 
   }
 
