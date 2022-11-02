@@ -37,7 +37,7 @@ export class CompletedTaskComponent implements OnInit {
     Swal.fire({
       position: 'top-end',
       icon: 'success',
-      title: 'Your Task has been Finished',
+      title: 'Your Completed Task has been moved to Your Tasks!',
       showConfirmButton: false,
       timer: 1000
     });

@@ -14,7 +14,7 @@ export class CompletedTasksComponent implements OnInit {
 
 
   completedTasks!: CompletedTask[];
-
+  
   noCompletedTasks: boolean = true;
 
   constructor(
