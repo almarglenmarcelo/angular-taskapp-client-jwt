@@ -1,23 +1,28 @@
   <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/">Task Application</a>
+    <div class="container-fluid ">
+      <a class="navbar-brand" routerLink="/">Task It</a>
+      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav d-flex flex-row justify-content-between w-100">
-          <a class="nav-link" routerLink="/features">Features</a>
-          
-          <div class="d-flex flex-column flex-md-row align-items-center" >
-            <div *ngIf="hasToken; else noToken" >
-              <a>Username: {{ username }}</a>
-              <a class="nav-link" (click)="logout()">Logout</a>
+
+      <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+        <div class="navbar-nav d-flex justify-content-between w-100">
+          <a class="nav-link" routerLink="/features" style="cursor: pointer;">Features</a>
+
+            <div>
+              <div *ngIf="hasToken; else noToken" class="d-flex flex-column flex-lg-row align-items-lg-center" >
+                  <a >Username: {{ username }}</a>
+                  <a class="nav-link" (click)="logout()" style="cursor: pointer;">Logout</a>
+              </div>
+
+              <ng-template #noToken>
+                <div class="d-flex flex-column flex-lg-row">
+                  <a class="nav-link" routerLink="/login">Login</a>
+                  <a class="nav-link" routerLink="/register">Register</a>
+                </div>
+              </ng-template>
             </div>
-            <ng-template #noToken >
-                <a class="nav-link" routerLink="/login">Login</a>
-                <a class="nav-link" routerLink="/register">Register</a>
-            </ng-template>
-          </div>
         </div>
       </div>
     </div>
