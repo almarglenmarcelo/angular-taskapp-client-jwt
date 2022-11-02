@@ -1,4 +1,4 @@
-<div class="card p-2 w-100 bg-success bg-opacity-75 text-center d-flex flex-md-row">
+<div class="card p-2 w-auto bg-success bg-opacity-100 text-center d-flex flex-md-row">
     <div class="card-body">
         <h3 class="card-title">{{ completedTask.title }}</h3>
         <p class="card-text">{{ completedTask.description }}
@@ -6,7 +6,7 @@
     </div>
 
     <div class="d-flex flex-column">
-        <button class="btn btn-primary w-100 bg-opacity-25 text-dark h-50" (click)="redoTask()">Redo</button>
-        <button class="btn btn-danger w-100 bg-opacity-25 h-50 mt-2" (click)="deleteTaskCompleted(completedTask)">Delete</button>
+        <button class="btn btn-primary w-100 bg-opacity-25 text-dark h-50 border-dark" (click)="redoTask()">Redo</button>
+        <button class="btn btn-danger w-100 bg-opacity-25 h-50 mt-2 border-dark" (click)="deleteTaskCompleted(completedTask)">Delete</button>
     </div>
 </div>

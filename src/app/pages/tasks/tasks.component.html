@@ -12,11 +12,12 @@
         
     </div>
     <ng-template #hasTasks>
-        <div class="d-flex flex-wrap w-100 bg-dark mt-3 rounded mb-5" >
+        <div class="d-flex flex-wrap flex-column w-100 p-5 bg-dark mt-3 rounded mb-5" >
             <app-task *ngFor="let task of tasks" [task]="task" class="p-1"></app-task>
         </div>
     </ng-template>
 </div>
+
 
 <ng-template #noToken >
     <h1 class="text-light text-center mt-5 bg-primary bg-opacity-25" style="height: 100px;">PLEASE LOG IN FIRST TO VIEW YOUR TASKS</h1>
