@@ -1,9 +1,11 @@
-<div class="text-white text-center" style="font-size: 40px; margin-top: 100px;">
-    <h1 class="pt-5 text-info" style="font-size: 3rem">WELCOME TO TASK APPLICATION</h1>
-    <h2 class="mt-4 text-success" style="font-size: 3rem">"Your Task Tracker On The Web"</h2>
-    <button *ngIf="hasToken; else noToken" class="btn btn-success mt-5" routerLink="/tasks" style="font-size: 30px;">View my Tasks</button>
+<div class="container-fluid text-white text-center" style="font-size: 40px; margin-top: 100px;">
+    <div>
+        <p class="pt-5 text-info display-md-2 ">WELCOME TO TASK APPLICATION</p>
+        <p class="mt-4 text-success">"Your Task Tracker On The Web"</p>
+        <button *ngIf="hasToken; else noToken" class="btn btn-success mt-5" routerLink="/tasks" style="font-size: 30px;">View my Tasks</button>
 
-    <ng-template #noToken>
-        <h2 class="mt-5 p-5 bg-dark" style="height:150px;">Please Login to Start Tracking your Tasks!</h2>
-    </ng-template>
+        <ng-template #noToken>
+            <h2 class="mt-5 p-5 bg-dark" style="height:150px;">Please Login to Start Tracking your Tasks!</h2>
+        </ng-template>
+    </div>
 </div>

@@ -1,18 +1,18 @@
-<div class="container">
-    <div class="text-light d-flex mt-5">
-        <h2 class="text-info">Completed Task</h2>
+<div class="container-fluid">
+    <div class="text-light d-flex my-5 pt-5">
+        <h2 class="text-info offset-lg-2">Completed Tasks</h2>
         <button class="btn btn-warning ms-3" routerLink="/tasks">Back</button>
     </div>
     
     <div *ngIf="noCompletedTasks; else hasCompletedTasks">
-        <div class="bg-dark d-flex flex-wrap justify-content-center align-items-center mt-5" style="height: 200px;">
+        <div class="bg-dark d-flex flex-column flex-wrap mt-5" style="height: 200px;">
             <h2 class="text-light">Finish a Task so you can have this filled!</h2>
         </div>
     </div>
 
     <ng-template #hasCompletedTasks>
-        <div class="d-flex flex-wrap w-100 bg-dark mt-3 rounded mb-5" >
-            <app-completed-task *ngFor="let completedTask of completedTasks" [completedTask] = "completedTask" class="p-1"></app-completed-task>
+        <div class="container p-4 bg-dark p-md-5 rounded d-flex flex-column align-items-center" >
+            <app-completed-task *ngFor="let completedTask of completedTasks" [completedTask] = "completedTask" class="p-1 w-100"></app-completed-task>
         </div>
     </ng-template>
 </div>
