@@ -22,9 +22,8 @@ export class UpdateTaskComponent implements OnInit {
     private taskService: TaskService,
     private router: Router
   ) { 
-
+    
     this.taskId = parseInt(this.router.url.split("/")[3]);
-    console.log(this.taskId)
     
 
   }
@@ -39,6 +38,8 @@ export class UpdateTaskComponent implements OnInit {
 
   onSubmit(): void {
     this.task.id = this.taskId;
+    this.task.title = this.task.title!.split('[EDIT]: ')[1];
+    this.task.description = this.task.description!.split('[EDIT]: ')[1];
 
     this.taskService.updateTask(this.task).subscribe({
       next: this.updateTaskSuccess.bind(this),
@@ -52,9 +53,9 @@ export class UpdateTaskComponent implements OnInit {
 
 
   assignTaskValues(result: Record<string, any> ){
-    this.previousTask.id = result['id'];
-    this.previousTask.title = '[EDIT]: ' +  result['title'];
-    this.previousTask.description = '   [EDIT]: ' + result['description'];
+    this.task.id = result['id'];
+    this.task.title = '[EDIT]: ' +  result['title'];
+    this.task.description = '[EDIT]: ' + result['description'];
 
   }
   
