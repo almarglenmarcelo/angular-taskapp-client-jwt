@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-lg bg-light">
+  <nav class="navbar navbar-expand-lg bg-success">
     <div class="container-fluid ">
       <a class="navbar-brand" routerLink="/">Task It</a>
       
@@ -12,7 +12,7 @@
 
             <div>
               <div *ngIf="hasToken; else noToken" class="d-flex flex-column flex-lg-row align-items-lg-center" >
-                  <a >Username: {{ username }}</a>
+                  <a>Username: {{ username }}</a>
                   <a class="nav-link" (click)="logout()" style="cursor: pointer;">Logout</a>
               </div>
 
