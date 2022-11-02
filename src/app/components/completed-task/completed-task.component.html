@@ -1,8 +1,13 @@
 <div class="card p-2 w-auto bg-success bg-opacity-100 text-center d-flex flex-md-row">
-    <div class="card-body">
-        <h3 class="card-title">{{ completedTask.title }}</h3>
-        <p class="card-text">{{ completedTask.description }}
-        </p>
+    <div class="card-body d-flex align-items-center justify-content-around">
+       <div>
+            <h3 class="card-title">{{ completedTask.title }}</h3>
+            <p class="card-text">{{ completedTask.description }} </p>
+       </div>
+       <div class="bg-info p-2 rounded bg-opacity-25">
+        <h6>Date Completed: {{ date }}</h6>
+        <h6>Time Completed: {{ time }}</h6>
+       </div>
     </div>
 
     <div class="d-flex flex-column">

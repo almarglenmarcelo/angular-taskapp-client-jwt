@@ -33,6 +33,14 @@ export class TaskComponent implements OnInit {
    this.router.navigate(['tasks/update/' + this.task.id]);
   }
 
+
+  deleteTask(task: Task) {
+    this.taskService.deleteTask(task.id!).subscribe({
+      next: this.deleteTaskSuccess.bind(this),
+      error: this.deleteTaskFailed.bind(this)
+    });
+  }
+  
   finishTask(task: Task){
 
     this.taskService.completeTask(this.task.id!).subscribe({
@@ -41,12 +49,6 @@ export class TaskComponent implements OnInit {
     });
   }
 
-  deleteTask(task: Task) {
-    this.taskService.deleteTask(task.id!).subscribe({
-      next: this.deleteTaskSuccess.bind(this),
-      error: this.deleteTaskFailed.bind(this)
-    });
-  }
 
 
   deleteTaskSuccess(response: Record<string, any>) {

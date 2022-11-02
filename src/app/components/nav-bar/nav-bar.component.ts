@@ -27,7 +27,7 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  
   logout(): void {
    Swal.fire(
     {

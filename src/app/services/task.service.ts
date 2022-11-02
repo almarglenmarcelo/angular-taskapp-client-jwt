@@ -25,7 +25,7 @@ export class TaskService {
   get(): Observable<Task[]> {
     return this.http.get<Task[]>(this.baseUrl, {headers: this.httpHeaders});
   }
-
+  
   getSingleTask(taskId: number): Observable<Task> {
     return this.http.get<Task>(this.baseUrl + `/${taskId}`, {headers: this.httpHeaders});
   }

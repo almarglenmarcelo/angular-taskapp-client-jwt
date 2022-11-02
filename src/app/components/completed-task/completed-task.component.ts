@@ -16,12 +16,19 @@ export class CompletedTaskComponent implements OnInit {
   
   task!: Task;
 
+  
+  dateAndTime!: string[];
+  date!: string;
+  time!: string;
   constructor(
     private taskService: TaskService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.dateAndTime = this.completedTask.datetime_completed?.split("T")!;
+    this.date = this.dateAndTime[0];
+    this.time = this.dateAndTime[1];
   }
 
   redoTask() {
